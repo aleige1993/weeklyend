@@ -75,23 +75,18 @@
             </el-form-item>
         </el-row>
         <el-row>
-            
-            <el-form-item label="权限" prop="department" >
-                <!-- <el-select v-model="value1" multiple placeholder="请选择">
-                    <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
-                    </el-option>
-                </el-select> -->
-
-
+            <el-form-item label="权限" prop="department">
+              <el-checkbox-group v-model="ruleForm.department">
+                <el-checkbox label="查阅" name="type"></el-checkbox>
+                <el-checkbox label="审批" name="type"></el-checkbox>
+              </el-checkbox-group>
+            </el-form-item>
+            <!-- <el-form-item label="权限" prop="department" >
               <el-select v-model="ruleForm.department" multiple placeholder="请选择权限" >
                 <el-option label="查阅" value="shanghai"></el-option>
                 <el-option label="审批" value="beijing"></el-option>
               </el-select>
-            </el-form-item>
+            </el-form-item> -->
         </el-row> 
        <div class="modebitsubt">
           <el-button   @click="resetForm('ruleForm')">取消</el-button>

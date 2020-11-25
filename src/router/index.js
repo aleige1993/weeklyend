@@ -12,10 +12,11 @@ export default new Router({
       path: '/index', component: resolve => { require(['@/pages/page-index'], resolve) },
       children: [
         { path: '/', component: resolve => { require(['@/pages/page-home'], resolve) }},
-        { path: 'userInfo', component: resolve => { require(['@/pages/userInfo'], resolve) }},
-        { path: 'weekreport', component: resolve => { require(['@/pages/weekreport'], resolve) }},
-        { path: 'opinion', component: resolve => { require(['@/pages/opinion'], resolve) }},
-        { path: 'rolepart', component: resolve => { require(['@/pages/rolepart'], resolve) }}
+        { path: 'userInfo',name:'userInfo', component: resolve => { require(['@/pages/userInfo'], resolve) }},
+        { path: 'weekreport',name:'weekreport', component: resolve => { require(['@/pages/weekreport'], resolve) }},
+        { path: 'opinion', name:'opinion',component: resolve => { require(['@/pages/opinion'], resolve) }},
+        { path: 'rolepart',name:'rolepart', component: resolve => { require(['@/pages/rolepart'], resolve) }},
+        { path: 'reportdateil', name:'reportdateil', component: resolve => { require(['@/pages/reportdateil'], resolve) }}
       ]
     }
   ],

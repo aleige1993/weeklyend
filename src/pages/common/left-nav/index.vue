@@ -1,7 +1,7 @@
 <template>
   <div id="left-nav">
     <el-menu
-      :default-active="this.$route.path"
+      :default-active="actinav"
       class="el-menu-vertical-demo" 
        background-color="#545c64"
        router
@@ -33,11 +33,24 @@
     name: 'leftNav',
     data() {
       return {
-        activeIndex:1
+        activeIndex:1,
+        actinav:''
       };
+    },
+    watch:{
+      $route(to,from){
+        console.log(to.path);
+        if(to.path == '/index/reportdateil'){
+          this.actinav == '/index/weekreport'
+        }
+      }
     },
     mounted(){
       console.log(this.$route.path)
+      this.actinav = this.$route.path
+      if(this.$route.path == '/index/reportdateil'){
+          this.actinav == '/index/weekreport'
+        }
     },
     methods: { 
       // clickMenu(index, childIndex) {

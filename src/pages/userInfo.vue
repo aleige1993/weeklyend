@@ -58,6 +58,22 @@
                       >删除</el-button
                     >
                   </el-popconfirm>
+
+                  <el-popconfirm
+                    confirm-button-text="确定"
+                    cancel-button-text="取消"
+                    icon="el-icon-info"
+                    icon-color="red"
+                    title="确定重置密码吗？"
+                    @confirm="deltRow(scope.row)"
+                  >
+                    <el-button
+                      slot="reference"
+                      type="warning"
+                      size="small"
+                      >重置密码</el-button
+                    >
+                  </el-popconfirm>
                 </div>
               </template>
             </el-table-column>
@@ -112,17 +128,15 @@
         </el-row> 
          <el-row>
           <el-col :span="11">
-            <el-form-item label="角色职位" prop="role">
-              <el-input v-model="ruleForm.role"></el-input>
+            <el-form-item label="角色职称" prop="role">
+              <el-select v-model="ruleForm.role" placeholder="请选择角色职称">
+                <el-option label="区域一" value="shanghai"></el-option>
+                <el-option label="区域二" value="beijing"></el-option>
+              </el-select>
             </el-form-item>
           </el-col>
-          <el-col :span="11"> 
-            <el-form-item :label="isAdd?'创建密码':'修改密码'" prop="paswd">
-              <el-input v-model="ruleForm.paswd"></el-input>
-            </el-form-item> 
-          </el-col>
         </el-row>
-        <el-row>
+        <!-- <el-row>
           <el-col :span="11">
             <el-form-item label="是否可查阅" prop="ischeck">
                <el-radio-group v-model="ruleForm.ischeck">
@@ -139,7 +153,7 @@
           </el-radio-group>
         </el-form-item>
           </el-col>
-        </el-row> 
+        </el-row>  -->
         <el-row> 
           <el-col :span="11">
            <el-form-item label="是否领导" prop="isleader">
@@ -174,10 +188,7 @@ export default {
         department: "",
         structure: "",
         role: '',
-        isleader: '',
-        ischeck: '',
-        isreply:'',
-        paswd:''
+        isleader: ''
       },
       rules: {
         name: [
@@ -218,12 +229,12 @@ export default {
         {
           label: "姓名",
           prop: "shouji",
-          width: "40%",
+          width: "30%",
         },
         {
           label: "手机号码",
           prop: "shouji",
-          width: "40%",
+          width: "30%",
         },
         {
           label: "部门",
@@ -243,21 +254,21 @@ export default {
         {
           label: "是否领导",
           prop: "shouji",
-          width: "30%",
+          width: "20%",
         },
-        {
-          label: "是否可以查阅下级周报",
-          prop: "shouji",
-          width: "30%",
-        },
-        {
-          label: "是否可以批复下级周报",
-          prop: "shouji",
-          width: "30%",
-        },
+        // {
+        //   label: "是否可以查阅下级周报",
+        //   prop: "shouji",
+        //   width: "30%",
+        // },
+        // {
+        //   label: "是否可以批复下级周报",
+        //   prop: "shouji",
+        //   width: "30%",
+        // },
         {
           label: "操作",
-          width: "",
+          width: "70%",
           prop: "opention",
         },
       ],
